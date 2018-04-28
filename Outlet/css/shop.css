@@ -1,0 +1,265 @@
+/* options */
+
+
+.options{
+    background-color: lightgray;
+}
+
+.option1{
+    margin-left: 18%;
+    padding: 5px;
+}
+
+.option2{
+    padding: 10px;
+}
+
+.option3{
+    padding: 5px;
+}
+
+.option4{
+    padding: 5px;
+}
+
+/* navigation bar */
+
+body {
+	margin: 0;
+	background: #f7f7f7;
+	font-weight: 400;
+}
+
+.navigation {
+	width: 90%;
+	margin: 0 auto;
+}
+
+header {
+  background: #55d6aa;
+}
+
+header::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+nav {
+  float: right;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+  margin-left: 70px;
+  padding-top: 23px;
+  position: relative;
+}
+
+nav a {
+  color: #444;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: #000;
+}
+
+nav a::before {
+  content: '';
+  display: block;
+  height: 5px;
+  background-color: #444;
+  position: absolute;
+  top: 0;
+  width: 0%;
+  transition: all ease-in-out 250ms;
+}
+
+nav a:hover::before {
+  width: 100%;
+}
+
+/* products section */
+
+#search{
+    margin-top: 3%;
+    margin-left: 20%;
+    width: 24%;
+    float: left;
+}
+
+.searchImage{
+    margin-top: 2.95%;
+    width: 1.6%;
+    height: 28px;
+}
+
+.clear{
+    clear: both;
+}
+
+.filterProducts{
+    margin-top: 4%;
+    margin-left: 2%;
+    width: 14%;
+    height: 800px;
+    background-color: white;
+    box-sizing: border-box;   
+    border: 1px solid lightgray;
+    background-color: white;
+    float: left;
+
+}
+
+.products{
+    background-color: #fcfcfc;
+    height: 1500px;
+    width: 100%;
+}
+
+.product{
+    margin-top: 4%;
+    margin-left: 0.5%;
+    width: 16%;
+    height: 550px;
+    background-color: white;
+    box-sizing: border-box;   
+    border: 1px solid lightgray;
+    background-color: white;
+    float: left;
+}
+
+
+.image{
+    margin-left: 25%;
+    padding: 20px;
+    width: 50%;
+    height: 150px;
+}
+
+.product h1{
+    color: red;
+    text-align: center;
+    font-size: 16px;
+}
+
+.product p{
+    width: 95%;
+    margin-left: 2%;
+    height: 100px;
+    text-align: center;
+}
+
+.selectPrice{
+    font-size: 16px;
+    color: black;
+    margin-left: 5%;
+}
+
+.selectStock{
+    color: lawngreen;
+    margin-left: 5%;
+    font-size: 16px;
+}
+
+.product button{
+    margin-top: 12%;
+    margin-left: 35%;
+    background-color: #55d6aa;
+    padding: 8px;
+    border-style: solid;
+    border-color: lightgray;
+    text-align: center;
+}
+
+button:hover{
+    background-color: white;
+}
+
+/* categories */
+
+.clearfix:after {
+display:block;
+clear:both;
+}
+/*----- Menu Outline -----*/
+.menu-wrap {
+width:100%;
+box-shadow:0px 1px 3px rgba(0,0,0,0.2);
+background:white;
+}
+.menu {
+width:1000px;
+margin:0px auto;
+}
+.menu li {
+margin:0px;
+list-style:none;
+font-family:'Ek Mukta';
+}
+.menu a {
+transition:all linear 0.15s;
+color:#919191;
+}
+.menu li:hover > a, .menu .current-item > a {
+text-decoration:none;
+color:#be5b70;
+}
+.menu .arrow {
+font-size:11px;
+line-height:0%;
+}
+/*----- Top Level -----*/
+.menu > ul > li {
+float:left;
+display:inline-block;
+position:relative;
+font-size:19px;
+}
+.menu > ul > li > a {
+padding:10px 40px;
+display:inline-block;
+text-shadow:0px 1px 0px rgba(0,0,0,0.4);
+}
+.menu > ul > li:hover > a, .menu > ul > .current-item > a {
+background:white;
+}
+/*----- Bottom Level -----*/
+.menu li:hover .sub-menu {
+z-index:1;
+opacity:1;
+}
+.sub-menu {
+width:160%;
+padding:5px 0px;
+position:absolute;
+top:100%;
+left:0px;
+z-index:-1;
+opacity:0;
+transition:opacity linear 0.15s;
+box-shadow:0px 2px 3px rgba(0,0,0,0.2);
+background:white;
+}
+.sub-menu li {
+display:block;
+font-size:16px;
+}
+.sub-menu li a {
+padding:10px 30px;
+display:block;
+}
+.sub-menu li a:hover, .sub-menu .current-item a {
+background:lightgrey;
+}
+
+/* filter */

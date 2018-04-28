@@ -1,5 +1,18 @@
 /* options */
 
+.link{
+    color: white;
+}
+
+.link:hover{
+    color: aquamarine;
+}
+
+
+.btn{
+    background-color: #55d6aa;
+    color: white;
+}
 
 .options{
     background-color: lightgray;
@@ -92,7 +105,7 @@ nav a:hover::before {
 
 #search{
     margin-top: 3%;
-    margin-left: 20%;
+    margin-left: 28%;
     width: 24%;
     float: left;
 }
@@ -111,7 +124,7 @@ nav a:hover::before {
     margin-top: 4%;
     margin-left: 2%;
     width: 14%;
-    height: 800px;
+    height: 550px;
     background-color: white;
     box-sizing: border-box;   
     border: 1px solid lightgray;
@@ -122,7 +135,7 @@ nav a:hover::before {
 
 .products{
     background-color: #fcfcfc;
-    height: 1500px;
+    height: 3300px;
     width: 100%;
 }
 

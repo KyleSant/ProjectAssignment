@@ -91,13 +91,13 @@
         <li>
         <a href="#">Gaming periphals <span class="arrow">&#9660;</span></a>
             <ul class="sub-menu">
-            <li><a href="#">Mice</a></li>
+            <li><a href="mice.php">Mice</a></li>
             <li><a href="headset.php">Headsets/Mic</a></li>
             <li><a href="keyboard.php">Keyboards</a></li>
             <li><a href="monitor.php">Monitors</a></li>
             </ul>
             </li>
-        <li><a href="laptop.php">Laptops</a></li>
+        <li><a href="#">Laptops</a></li>
         <li><a href="gchair.php">Gaming chairs</a></li>
         </ul>
         </div>
@@ -116,7 +116,7 @@
     </form>
       <?php
         $conn = mysqli_connect('localhost','root','','outlet','3306') or die("Cannot connect to db");
-        $query = "SELECT * FROM products WHERE Category = 1";
+        $query = "SELECT * FROM products WHERE Category = 5";
         $result = mysqli_query($conn, $query);
 
         if($result->num_rows > 0){

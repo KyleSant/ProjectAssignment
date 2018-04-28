@@ -8,14 +8,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Outlet</title>
-    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/about.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
-   <!-- options -->
-   
-    <div class="options">
+  <!-- options -->
+  
+   <div class="options">
        <a href="help.php">
         <img src="images/faq.png" class="option1" height="32">
        </a>
@@ -69,7 +69,6 @@
         
     </div>
     
-    
    <!-- navigation bar -->
    
     <header>
@@ -78,89 +77,117 @@
 
       <nav>
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="about.php">About</a></li>
+          <li><a href="index.php">Home</a></li>
+          <li><a href="#">About</a></li>
           <li><a href="shop.php">Shop</a></li>
           <li><a href="contactus.php">Contact Us</a></li>
         </ul>
       </nav>
     </div>
   </header>
-  
-  <!-- container content -->
-  
-  <div class="content">
-      <h1 class="title"><strong>Trending</strong></h1>
-      <img class="seperationLine" src="images/seperation.png" height="5">
-      
-      <!-- News Section -->
-      
-      <div class="index-news">
-          <div class="article">
-              <h3><strong>Doublelift's brother arrested, booked on charges of murder</strong></h3>
-              <img class="news-img" src="images/crime.jpg">
-              <p>Team Liquid AD carry Yiliang "Doublelift" Peng's brother Yihong Peng, 30, was arrested by the Orange County Sheriff's Department on Saturday after he allegedly killed his mother and stabbed his father. According to a statement released by the OCSD, neighbors called in regarding a man on the street with a knife.</p>
-          </div>
-          
-          <div class="article" id="spacingArticle">
-              <h3><strong>The Story of S1mple CSGO pro player and endeavours</strong></h3>
-              <img class="news-img" src="images/s1mple.jpg">
-              <p>Oleksandr "s1mple" Kostyliev is one of Counter Strike Global Offensives best young players. A skilled rifler, an assassin with the AWP and a wizard with a pistol, the young Ukranian prodigy can do it all. But S1mple has garnered a reputation for himself among the community as a talented, but brash player who doesn't always get along with him teammates.</p>
-          </div>
-          
-          <div class="article" id="spacingArticle">
-              <h3><strong>The Twitch Phenomenon: The Rise of the Celebrity Gamer</strong></h3>
-              <img class="news-img" src="images/celebrity.jpg">
-              <p>You might be wondering how Ninja, a guy from Lake Villa, Illinois got to where he is by playing video games. You may also be wondering how the hell he was able to get Drake to play video games with him to an audience of 600,000. Well it’s all thanks in part to Twitch.</p>
-          </div>
-          
-           <div class="clear"></div>
-          
-         <div class="article">
-              <h3><strong>TACO leaves SK Gaming and big let down to fans</strong></h3>
-              <img class="news-img" src="images/taco.jpeg">
-              <p>TACO has been with SK since July 2016, and has played alongside team captain Gabriel "FalleN" Toledo since November 2015, when he joined Luminosity Gaming. It is unclear if TACO was kicked off the team or left of his own volition, but said in a TwitLonger statement that he has been "unhappy" and felt "pressure" from outside the team.</p>
-          </div>
-          
-          <div class="article" id="spacingArticle">
-              <h3><strong>The Top 10 Most Memorable CS:GO Grand Finals</strong></h3>
-              <img class="news-img" src="images/championship.jpg">
-              <p>Since the summer of 2012, we’ve been treated to nearly six years of increible Counter-Strike: Global Offensive competition. But if you haven’t been watching CS:GO for all that time, we got you covered. From the controversial 2017 DreamHack Montreal finals to the back-and-forth heroics of NaVi vs Fnatic at ESL One Cologne, here are our Top 10 most memorable grand finals in competitive CS:GO history.</p>
-          </div>
-          
-          <div class="article" id="spacingArticle">
-              <h3><strong>Iconics Esports Moments: Tokido's Legendary EVO Run</strong></h3>
-              <img class="news-img" src="images/tokido.jpg">
-              <p>Heading into EVO 2017, Hajime “Tokido” Taniguchi – a fighting game legend – was entering year 10 of an EVO first place drought. He had 21 Top 8 finishes, including two titles in Capcom vs. SNK 2 and Super Street Fighter 2 Turbo, but EVO’s headlining Street Fighter crown had always managed to escape his grasp. </p>
-          </div>
-          
-          <div class="clear"></div>
-      </div>
-      
-    <!-- Videos Section -->  
-    
-    <h1 class="title"><strong>Featured Videos</strong></h1>
-    <img class="seperationLine2" src="images/seperation.png" height="5">
-    <div class="news-videos">
-        <iframe class="video" width="353" height="315" src="https://www.youtube.com/embed/oYqh_jfJU3I?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        
-        <iframe class="video" width="353" height="315" src="https://www.youtube.com/embed/OUheAcaNMm4?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        
-        <iframe class="video" width="353" height="315" src="https://www.youtube.com/embed/WZHl3ftjeUA?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        
-        <div class="clear"></div>
-        
-        <iframe class="video" width="353" height="315" src="https://www.youtube.com/embed/D99DvUWU3wE?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        
-        <iframe class="video" width="353" height="315" src="https://www.youtube.com/embed/uwC7T3Xrmu8?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        
-        <iframe class="video" width="353" height="315" src="https://www.youtube.com/embed/zZCG6SYQcOQ?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        
-        <div class="clear"></div>
+   
+   <!-- Top section -->
+   
+    <div class="announcement">
+        <h2 class="headerTitle"><strong>About Us</strong></h2>
+        <p> We provide news regarding competitive matches, players and tournaments on daily basis.
+			The content is desktop optimized, comprehensive, customizable and seamlessly shareable and
+			we make sure to keep you updated with the latest news regarding e-Sports
+			Our resources are mostly obtained from all over social media online gaming communities 
+            We even have our merchandise and other gaming products you can buy from our shop. </p>
     </div>
+    
+    <!-- Middle section -->
+    <div class="middle">
+        <h2><strong>Sponors and Partners</strong></h2>
+       <div class="partners">
+        <div class="headsponsor">
+            <a href="https://www.ea.com/">
+             <img class="image" src="images/sponsors/ea.png" width="120" height="115">
+            </a>
+        </div>
+        <div class="sponsor">
+            <a href="https://www.activision.com/">
+             <img class="image2" src="images/sponsors/activision.png" width="240" height="60">
+            </a>
+        </div>
+        <div class="sponsor">
+            <a href="https://www.logitech.com/en-us">
+             <img class="image3" src="images/sponsors/logitech.png" width="240" height="75">
+            </a>
+        </div>
+        <div class="sponsor">
+            <a href="https://www.origin.com/irl/en-us/store">
+             <img class="image" src="images/sponsors/origin.png" width="120" height="115">
+            </a>
+        </div>
+        
+        <div class="clear"></div>
+        
+        <div class="headsponsor">
+           <a href="https://www.ibuypower.com/">
+            <img class="image4" src="images/sponsors/power.png" width="145" height="115">
+           </a>
+        </div>
+        <div class="sponsor">
+           <a href="https://www.twitch.tv/">
+            <img class="image5" src="images/sponsors/twitch.png" width="220" height="70">
+           </a>
+        </div>
+        <div class="sponsor">
+           <a href="https://www.sony.com/">
+            <img class="image6" src="images/sponsors/sony.png" width="240" height="60">
+           </a>
+        </div>
+        <div class="sponsor">
+           <a href="https://www.razer.com/">
+            <img class="image7" src="images/sponsors/razer.png" width="280" height="80">
+           </a>
+        </div>
+        
+        <div class="clear"></div>
+      </div>
+    </div>
+    
+   <!-- Last section -->
+  <div class="profiles">
+   <h2><strong>Leadership & Co-Workers</strong></h2>
+   <div class="headprofile">
+       <img src="images/profiles/maleprofile.png" width="180">
+       <h1>Kyle Sant</h1>
+       <div class="profileName"> President & Chief Operating Officer </div>
+       <div class="underline"></div>
+       <p>Kyle oversees the development and execution of eSport’s business strategy and has been instrumental in shaping its digital media offerings, including the creation and launch of eSports’s mobile apps.</p>
+   </div>
+   
+  <div class="profile">
+       <img src="images/profiles/maleprofile.png" width="180">
+       <h1>Harvey Specter</h1>
+       <div class="profileName"> Vice President, Content </div>
+       <div class="underline"></div>
+       <p>Mr.Specter is responsible for eSports’s content strategy and execution, and leads editorial across both eSports and in-general the whole industry. If any members in the community have complaints they are directed to him.</p>
+   </div>
+   
+  <div class="profile">
+       <img src="images/profiles/maleprofile.png" width="180">
+       <h1>Mark Zammit</h1>
+       <div class="profileName"> Senior Vice President, Sales </div>
+       <div class="underline"></div>
+       <p>Mark leads eSports’s sales teams across the US and Canada, bringing more than a decade of experience in developing and executing mobile and other digital campaigns that deliver maximum return for his clients. </p>
+   </div>
+   
+   <div class="profile">
+       <img src="images/profiles/womanprofile.jpg" width="180">
+       <h1>Mariela Vella</h1>
+       <div class="profileName"> Senior Vice President, Human Resources  </div>
+       <div class="underline"></div>
+       <p>Mariela leads all Human Resources (HR) operations at eSports, including identifying and securing the very best talent to complement the company’s talented in-house product development and content teams.  </p>
+   </div>
+   
+   <div class="clear"></div>
   </div>
-
-  <!-- Footer -->
+  
+   <!-- Footer -->
  
     <footer id="myFooter">
         <div class="information">
@@ -215,11 +242,10 @@
             </div>
         </div>
         <div class="footer-copyright">
-            <p>Copyright © 2018 Outlet Media Ventures Inc. All Rights Reserved. Certain content reproduced under license.    Privacy Policy  •   Terms of Use  •  AdChoices </p>
+            <p>Copyright © 2018 Outlet Media Ventures Inc. All Rights Reserved. Certain content reproduced under license.    Privacy Policy •   Terms of Use  •  AdChoices </p>
         </div>
     </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-       
-</body>
-</html>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   </body>
+   </html>

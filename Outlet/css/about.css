@@ -37,6 +37,20 @@ html, body{
 /* options */
 
 
+.link{
+    color: white;
+}
+
+.link:hover{
+    color: aquamarine;
+}
+
+
+.btn{
+    background-color: #55d6aa;
+    color: white;
+}
+
 .options{
     background-color: lightgray;
 }

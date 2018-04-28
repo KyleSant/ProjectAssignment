@@ -15,6 +15,16 @@
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     
+    <style>
+		html { 
+		background: url(images/gallerybg.jpg) no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+		}
+	</style>
+    
     <script>
 	
 	$(document).ready(function (){
@@ -26,7 +36,9 @@
    <!-- options -->
    
    <div class="options">
+       <a href="help.php">
         <img src="images/faq.png" class="option1" height="32">
+       </a>
         <img src="images/basket.png" class="option2" height="45">
         <img src="images/screenshot.png" class="option3" height="32">
         <a href="#myModal" class="nav-link trigger-btn" data-toggle="modal">
@@ -86,10 +98,10 @@
 
       <nav>
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Shop</a></li>
-          <li><a href="#">Contact Us</a></li>
+          <li><a href="index.php">Home</a></li>
+          <li><a href="about.php">About</a></li>
+          <li><a href="shop.php">Shop</a></li>
+          <li><a href="contactus.php">Contact Us</a></li>
         </ul>
       </nav>
     </div>

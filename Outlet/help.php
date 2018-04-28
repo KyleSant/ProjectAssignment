@@ -21,7 +21,9 @@
     <div class="options">
         <img src="images/faq.png" class="option1" height="32">
         <img src="images/basket.png" class="option2" height="45">
+       <a href="gallery.php">
         <img src="images/screenshot.png" class="option3" height="32">
+       </a>
         <a href="#myModal" class="nav-link trigger-btn" data-toggle="modal">
             <?php if(isset($_SESSION['username'])): ?>
               <a class="link" href="logout.php" style="text-decoration:none"><strong>Logout</strong></a>
@@ -52,7 +54,7 @@
                             </div>
                             </form>
                             <hr/>
-                            <form action="register.html">
+                            <form action="register.php">
                             <div class="form-group">
                                 <input type="submit" class="btn btn-block btn-lg" value="Register">
                             </div>
@@ -77,10 +79,10 @@
 
       <nav>
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Shop</a></li>
-          <li><a href="#">Contact Us</a></li>
+          <li><a href="index.php">Home</a></li>
+          <li><a href="about.php">About</a></li>
+          <li><a href="shop.php">Shop</a></li>
+          <li><a href="contactus.php">Contact Us</a></li>
         </ul>
       </nav>
     </div>

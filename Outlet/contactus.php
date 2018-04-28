@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+
+<?php
+    session_start();
+?>
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,7 +17,9 @@
     <!-- options -->
    
     <div class="options">
+       <a href="help.php">
         <img src="images/faq.png" class="option1" height="32">
+       </a>
         <img src="images/basket.png" class="option2" height="45">
         <a href="gallery.php">
             <img src="images/screenshot.png" class="option3" height="32">
@@ -70,9 +78,9 @@
 
       <nav>
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Shop</a></li>
+          <li><a href="index.php">Home</a></li>
+          <li><a href="about.php">About</a></li>
+          <li><a href="shop.php">Shop</a></li>
           <li><a href="#">Contact Us</a></li>
         </ul>
       </nav>

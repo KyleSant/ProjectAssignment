@@ -16,17 +16,20 @@
    <!-- options -->
    
     <div class="options">
+        <a href="help.php">
         <img src="images/faq.png" class="option1" height="32">
+       </a>
         <img src="images/basket.png" class="option2" height="45">
         <a href="gallery.php">
             <img src="images/screenshot.png" class="option3" height="32">
         </a>
+        <a href="#myModal" class="nav-link trigger-btn" data-toggle="modal">
             <?php if(isset($_SESSION['username'])): ?>
               <a class="link" href="logout.php" style="text-decoration:none"><strong>Logout</strong></a>
             <?php else: ?>
               <img src="images/user.png" class="option4" height="32">
             <?php endif; ?>
-     
+        </a>
         
         <div id="myModal" class="modal fade">
                 <div class="modal-dialog modal-login">
@@ -66,7 +69,6 @@
         
     </div>
     
-    
    <!-- navigation bar -->
    
     <header>
@@ -75,10 +77,10 @@
 
       <nav>
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
+          <li><a href="index.php">Home</a></li>
+          <li><a href="about.php">About</a></li>
           <li><a href="#">Shop</a></li>
-          <li><a href="#">Contact Us</a></li>
+          <li><a href="contactus.php">Contact Us</a></li>
         </ul>
       </nav>
     </div>

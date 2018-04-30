@@ -102,108 +102,42 @@ nav a:hover::before {
   width: 100%;
 }
 
-/* container content */
+/* forgot Pass */
 
-.content{
-    margin: 0 auto;
-    width: 60%;
-    background-color: #eaf7f1;
-    box-sizing: border-box;
-    height: 2200px;
-    padding: 30px;    
-    border: 1px solid lightgray;
+.container p{
+    margin-top: 5%;
 }
 
-.title{
-    margin: 0;
-    font-size: 32px;
+#textInput{
+    margin-left: 3%;
+    margin-bottom: 2%;
+    width: 50%;
+    height: 30px;
 }
 
-.seperationLine{
-    margin-left: 0.4%;
+#textInputTwo{
+    margin-left: 0.65%;
+    margin-bottom: 2%;
+    width: 50%;
+    height: 30px;
 }
 
-/* news section */
+#btn{
+    background-color:black;
+    margin-top: 1%;
+    color: white;
+    padding: 6px;
+    border: none;
+} 
 
-.article{
-    margin: 4% 0.6%;
-    width: 314px;
-    height: 525px;
-    background-color: #ccc;
-    box-sizing: border-box;   
-    border: 1px solid lightgray;
-    background-color: white;
-    float: left;
+#btn:hover{
+    color:#42f48f;
 }
-
-#spacingArticle{
-    margin-left: 5%;
-}
-
-.news-img{
-    width: 100%;
-    opacity: 0.7;
-    height: 200px;
-}
-
-.article h3{
-    font-weight: bold;
-    height: 75px;
-    font-family: Lato;
-    font-size: 18px;
-    text-align: center;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    text-transform: uppercase;
-    color: black;
-    padding: 5%;
-}
-
-.article p{
-    font-weight: 400;
-    font-family: 'Work Sans', sans-serif;
-    font-size: 14px;
-    height: 150px;
-    text-align: center;
-    padding-bottom: 10px;
-    color: black;
-    padding: 10px;
-}
-
-.clear{
-    clear: both;
-}
-
-.title2{
-    margin-bottom: 0;
-    margin-top: 2%;
-    margin-left: 0.1%;
-}
-
-.seperationLine2{
-    margin-left: 0.2%;
-}
-
-/* videos section */
-
-.news-videos{
-    width: 100%;
-    margin-top: 4%; 
-    background-color: #afddc7;
-    height: 643px;
-}
-
-.video{
-    margin-left: 0.5%;
-    float:left;
-    margin-top: 0.4%;
-}
-
-
 
 /* footer */
 
 #myFooter {
+    margin-top: 12%;
     background-color: #3a3a3a;
     color: white;
     padding-top: 30px;

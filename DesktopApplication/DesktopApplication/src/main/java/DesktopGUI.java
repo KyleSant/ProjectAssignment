@@ -4,6 +4,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -112,16 +113,24 @@ public class DesktopGUI extends javax.swing.JFrame {
         try {               
             Connection con = DriverManager.getConnection(
                     "jdbc:mysql://localhost/outlet", "root", "");
- 
-            Statement stmt = con.createStatement();
-             stmt.executeQuery("SELECT * from administrators WHERE Username = '"+username+"' AND Password = '"+password+"'");          
-            con.close();
-            Products m = new Products();
-            m.setVisible(true);
-            System.out.print("Logged in");
-            
+           if(!(username.equals("") && password.equals(""))){
+               
+               Statement stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery("SELECT Username, Password from administrators WHERE Username = '"+username+"' AND Password = '"+password+"'"); 
+               while(rs.next()) {
+                
+                Products m = new Products();
+                m.setVisible(true);
+                System.out.print("Logged in");
+               }
+               con.close();
+              
+           }
+           else{
+              JOptionPane.showMessageDialog(this,"Missing credentials");
+           }
         } catch (Exception e) {
-           System.out.println("Query Failed");
+          e.printStackTrace();
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 

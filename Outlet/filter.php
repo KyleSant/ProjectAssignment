@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+   <!DOCTYPE html>
 
 <?php
     session_start();
@@ -152,11 +153,15 @@
        </form>
       </div>
      
-      <?php
-    
+        <?php
+      if(isset($_POST['filterProduct'])){
+        $brand = $_POST['brandRadio'];
+        $price = $_POST['priceRadio'];
+        
         $conn = mysqli_connect('localhost','root','','outlet','3306') or die("Cannot connect to db");
-        $query = "SELECT * from products";
+        $query = "SELECT * from products where Brand='$brand' AND Price='$price'";
         $result = mysqli_query($conn, $query);
+    
 
         while ($row = mysqli_fetch_assoc($result)){
             echo "<div class='product'> 
@@ -171,7 +176,11 @@
                     <button>Add to Cart</button>
                   </div>";
         }
-     ?>
+    }
+      else{
+          echo "Invalid submission";
+      }
+      ?>
   </div>
    
 
@@ -179,3 +188,53 @@
    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
+
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   

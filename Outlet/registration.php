@@ -13,8 +13,9 @@
               VALUES ('$firstname','$lastname','$password','$email','$phone')";
     $result = mysqli_query($conn, $query);
         
-    if(mysqli_query($conn, $query)) { 
-        header('Location: index.php');
+    if($result) { 
+            echo "<script>alert('Registration successful');
+                window.location.href='index.php';</script>";
     }
     else{
          echo "<script>alert('Error, try again...');

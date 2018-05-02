@@ -5,10 +5,11 @@ if(isset($_POST['forgotPass'])){
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $query = "SELECT * from clients where Email='$email'";
-    $result = mysqli_connect($conn, $query);
+    $query = "SELECT Password from clients where Email='$email'";
+    $result = mysqli_query($conn, $query);
     
-    $row = mysqli_fetch_assoc($result);
+    $row = mysqli_fetch_row($result);
+    $myresult = $row[0];
         
         
         
@@ -23,19 +24,19 @@ if(isset($_POST['forgotPass'])){
         $mail->SMTPAuth = true;
         $mail->Username = $email;
         $mail->Password = $password;
-        $mail->Body = "This is an automated message to reset your password, find the credentials below: <br>". "Password: ". $row[Password];
+        $mail->Body = "This is an automated message to reset your password, find the credentials below: <br>". "Password: ". $myresult;
         $mail->Subject = 'Request Password';
         $mail->From = $email; #sender
         $mail->AddAddress($email); #recepient
         $mail->smtpConnect(
-            array(
-                "ssl" => array(
-                    "verify_peer" => false,
-                    "verify_peer_name" => false,
-                    "allow_self_signed" => true
-                )
+        array(
+            "ssl" => array(
+                "verify_peer" => false,
+                "verify_peer_name" => false,
+                "allow_self_signed" => true
             )
-        );
+        )
+    );
 
         
         if(!$mail->Send()){
@@ -43,9 +44,11 @@ if(isset($_POST['forgotPass'])){
                 echo "Mailer Error: ". $mail->ErrorInfo;
             }
             else{
-                echo    "<script>alert('Message sent');</script>";
+                echo    "<script>alert('Password sent to email');
+                        window.location.href='index.php';</script>";
             }
     
-} 
+} else{
     echo "Invalid inputs, try again...";
+}
 ?>

@@ -2,6 +2,7 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -31,6 +32,7 @@ public class Clients extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jComboBox1 = new javax.swing.JComboBox<>();
         lblHeader = new javax.swing.JLabel();
         lblInsert = new javax.swing.JButton();
         lblDelete = new javax.swing.JButton();
@@ -42,9 +44,13 @@ public class Clients extends javax.swing.JFrame {
         lblPhone = new javax.swing.JLabel();
         txtFirstName = new javax.swing.JTextField();
         txtLastName = new javax.swing.JTextField();
-        txtPassword = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
         txtPhone = new javax.swing.JTextField();
+        txtClientId = new javax.swing.JTextField();
+        lblClientId = new javax.swing.JLabel();
+        txtPassword = new javax.swing.JPasswordField();
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -83,42 +89,50 @@ public class Clients extends javax.swing.JFrame {
 
         lblPhone.setText("Phone_Number: ");
 
+        lblClientId.setText("Client_Id:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
+                .addContainerGap(53, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblFirstName)
-                            .addComponent(lblInsert)
-                            .addComponent(lblLastName)
-                            .addComponent(lblPassword)
-                            .addComponent(lblEmail)
-                            .addComponent(lblPhone))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblInsert)
+                                .addGap(54, 54, 54))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblEmail)
+                                    .addComponent(lblPassword)
+                                    .addComponent(lblLastName)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(54, 54, 54)
-                                        .addComponent(lblUpdate)
-                                        .addGap(41, 41, 41)
-                                        .addComponent(lblDelete))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(28, 28, 28)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
-                                            .addComponent(txtEmail)
-                                            .addComponent(txtPhone))))
-                                .addGap(52, 52, 52))
+                                        .addGap(2, 2, 2)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblClientId)
+                                            .addComponent(lblFirstName))))
+                                .addGap(38, 38, 38))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblPhone)
+                                .addGap(18, 18, 18)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(105, 105, 105))))
+                                .addGap(8, 8, 8)
+                                .addComponent(lblUpdate)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                                .addComponent(lblDelete)
+                                .addGap(30, 30, 30))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtPhone, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                                    .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                                    .addComponent(txtLastName, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                                    .addComponent(txtFirstName, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                                    .addComponent(txtClientId)
+                                    .addComponent(txtPassword))
+                                .addGap(79, 79, 79))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lblHeader)
                         .addGap(151, 151, 151))))
@@ -128,31 +142,36 @@ public class Clients extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(lblHeader)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblFirstName)
-                    .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblLastName)
-                    .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPassword)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblEmail)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPhone)
-                    .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblInsert)
-                    .addComponent(lblUpdate)
-                    .addComponent(lblDelete))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtClientId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblFirstName))
+                        .addGap(34, 34, 34)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblLastName)
+                            .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblPassword)
+                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(25, 25, 25)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblEmail))
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblPhone))
+                        .addGap(45, 45, 45)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblInsert)
+                            .addComponent(lblUpdate)
+                            .addComponent(lblDelete)))
+                    .addComponent(lblClientId))
                 .addGap(23, 23, 23))
         );
 
@@ -160,6 +179,7 @@ public class Clients extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblInsertActionPerformed
+        String clientId = txtClientId.getText();
         String firstName = txtFirstName.getText();
         String lastName = txtLastName.getText();
         String password = txtPassword.getText();
@@ -169,27 +189,46 @@ public class Clients extends javax.swing.JFrame {
         try {               
             Connection con = DriverManager.getConnection(
                     "jdbc:mysql://localhost/outlet", "root", "");
- 
+           if(checkClientInputs(clientId, firstName, lastName, password, email, phone)){
             Statement stmt = con.createStatement();
-             stmt.executeUpdate("insert into clients (First_Name, Last_Name, Password, Email, Phone_Number)"
-                    + " values ('" +firstName+ "', '" +lastName+ "', '" +password+ "', '" +email+ "', '" +phone+ "')");            
-            con.close();
+             stmt.executeUpdate("insert into clients (Client_ID, First_Name, Last_Name, Password, Email, Phone_Number)"
+                    + " values ('" +clientId+ "','" +firstName+ "', '" +lastName+ "', '" +password+ "', '" +email+ "', '" +phone+ "')");            
             System.out.println("Record successfully added");
+            con.close();
+           }else{
+               JOptionPane.showMessageDialog(this,"Missing some fields, fill them in!!!");
+           }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }//GEN-LAST:event_lblInsertActionPerformed
-
+    
+    public boolean checkClientInputs(String client, String firstname, String lastname, String password, String email, String phone)
+    {
+        if(!client.equals("") && !firstname.equals("") && !lastname.equals("") && !password.equals("") && !email.equals("") && !phone.equals("")){
+            return true;
+        }
+        return false;
+        
+    }
+    
     private void lblDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblDeleteActionPerformed
-         String firstName = txtFirstName.getText();
+        String clientId = txtClientId.getText();
+
+        
         try {               
             Connection con = DriverManager.getConnection(
                     "jdbc:mysql://localhost/outlet", "root", "");
+           if(!clientId.equals("")){
             Statement stmt = con.createStatement();
-            stmt.executeUpdate("delete from clients where First_Name='" +firstName+ "'");            
+            stmt.executeUpdate("delete from clients where Client_Id='" +clientId+ "'");            
             con.close();
             System.out.println("Record successfully deleted");
+           }else{
+               JOptionPane.showMessageDialog(this,"The client id entry is missing, fill it in");
+           }            
+
         } catch (Exception e) {
             System.out.println("Query Failed");
         }
@@ -197,6 +236,7 @@ public class Clients extends javax.swing.JFrame {
     }//GEN-LAST:event_lblDeleteActionPerformed
 
     private void lblUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblUpdateActionPerformed
+        String clientId = txtClientId.getText();
         String firstName = txtFirstName.getText();
         String lastName = txtLastName.getText();
         String password = txtPassword.getText();
@@ -206,12 +246,15 @@ public class Clients extends javax.swing.JFrame {
         try {               
             Connection con = DriverManager.getConnection(
                     "jdbc:mysql://localhost/outlet", "root", "");
- 
+             if(!clientId.equals("")){
             Statement stmt = con.createStatement();
             stmt.executeUpdate("update clients set First_Name='" +firstName+"', Last_Name='" +lastName+ "', "
-                    + "Password='" +password+ "', Email='" +email+ "', Phone_Number='" +phone+ "'  where First_Name='" +firstName+ "'");
+                    + "Password='" +password+ "', Email='" +email+ "', Phone_Number='" +phone+ "'  where Client_ID='" +clientId+ "'");
             con.close();
             System.out.println("Record successfully updated");
+             }else{
+                 JOptionPane.showMessageDialog(this,"Cannot find ID - missing entry field Client_Id");
+             }
         } catch (Exception e) {
             e.printStackTrace(); }
 
@@ -253,6 +296,8 @@ public class Clients extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel lblClientId;
     private javax.swing.JButton lblDelete;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblFirstName;
@@ -262,10 +307,11 @@ public class Clients extends javax.swing.JFrame {
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblPhone;
     private javax.swing.JButton lblUpdate;
+    private javax.swing.JTextField txtClientId;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtFirstName;
     private javax.swing.JTextField txtLastName;
-    private javax.swing.JTextField txtPassword;
+    private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtPhone;
     // End of variables declaration//GEN-END:variables
 }

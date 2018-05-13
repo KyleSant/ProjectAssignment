@@ -113,15 +113,17 @@ public class DesktopGUI extends javax.swing.JFrame {
         try {               
             Connection con = DriverManager.getConnection(
                     "jdbc:mysql://localhost/outlet", "root", "");
-           if(!(username.equals("") && password.equals(""))){
+           if(checkLoginInputs(username, password)){
                
                Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery("SELECT Username, Password from administrators WHERE Username = '"+username+"' AND Password = '"+password+"'"); 
-               while(rs.next()) {
+               if(rs.next()) {
                 
                 Products m = new Products();
                 m.setVisible(true);
                 System.out.print("Logged in");
+               }else{
+                   JOptionPane.showMessageDialog(this,"Login failed");
                }
                con.close();
               
@@ -134,6 +136,16 @@ public class DesktopGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 
+    public boolean checkLoginInputs(String username, String password)
+    {
+        if(!(username.equals("") && password.equals(""))){
+            return true;
+        }
+        return false;
+        
+    }
+    
+    
     /**
      * @param args the command line arguments
      */

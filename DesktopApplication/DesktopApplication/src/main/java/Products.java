@@ -128,6 +128,7 @@ public class Products extends javax.swing.JFrame {
         try {               
             Connection con = DriverManager.getConnection(
                     "jdbc:mysql://localhost/outlet", "root", "");
+            if(!searchEntry.equals("")){
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("select * from products where Product_Name like '%"+searchEntry+"%'");
            
@@ -146,7 +147,9 @@ public class Products extends javax.swing.JFrame {
                                    rs.getString(7),
                                    rs.getString(8)});
             }
-            
+           }else{
+               JOptionPane.showMessageDialog(this,"Missing keyword entry to search..."); 
+            }
             //close connection
             con.close();            
             

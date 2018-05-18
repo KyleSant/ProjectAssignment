@@ -8,17 +8,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Outlet</title>
-    <link href="css/register.css" rel="stylesheet" type="text/css">
+    <link href="css/cart.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
    <!-- options -->
    
     <div class="options">
-        <a href="help.php">
+       <a href="help.php">
         <img src="images/faq.png" class="option1" height="32">
-       </a>
+        </a>
         <img src="images/basket.png" class="option2" height="45">
         <a href="gallery.php">
             <img src="images/screenshot.png" class="option3" height="32">
@@ -69,80 +70,96 @@
         
     </div>
     
+    
    <!-- navigation bar -->
    
     <header>
     <div class="navigation">
-      <img src="images/logo.png" height="60">
+      <img src="images/logo.jpg" height="60">
 
       <nav>
         <ul>
           <li><a href="index.php">Home</a></li>
           <li><a href="about.php">About</a></li>
-          <li><a href="#">Shop</a></li>
+          <li><a href="shop.php">Shop</a></li>
           <li><a href="contactus.php">Contact Us</a></li>
         </ul>
       </nav>
     </div>
   </header>
   
-  <!-- Registration form -->
-  <form method="post" action="register.php">
-      <div class="container">
-        <h1>Register</h1>
-        <p>Please fill in this form to create an account.</p>
-        <hr>
+  <!-- shopping cart content -->
+     <div class="container">
+      <table id="shopping-cart">
+          <tr>
+              <th>Product ID</th>
+              <th>Product Name</th>
+              <th>Price</th>
+              <th>Delete</th>
+          </tr>
+          <?php
+          if (isset($_SESSION['userId'])){
+            $conn = mysqli_connect('localhost','root','','outlet','3306') or die("Cannot connect to DB");
+            $query = "SELECT products.Product_Id, products.Product_Name, products.Price FROM products INNER JOIN shopping_carts ON products.Product_Id = shopping_carts.Product WHERE shopping_carts.Client='".$_SESSION['userId']."'";
+          
+            $result = mysqli_query($conn, $query);
+            
+            while($row = mysqli_fetch_assoc($result)){
+                echo "<tr>
+                        <td>$row[Product_Id]</td>
+                        <td>$row[Product_Name]</td>
+                        <td>€$row[Price]</td>
+                        <td><button type='button' class='cartRemove'><a href='http://localhost:80/outlet/removeitem.php?id=$row[Product_Id]'>Remove</a></button>
+                       </tr>";
+            }}
+          ?>
+      </table>
+      <div id="paypal-button" style="margin-left:72%; margin-top: 3%;"></div>
+      <div id="paypal-success" style="margin-left:73%; color:green;"></div>
+      <script>
 
-        <label for="firstname"><b>First_Name: </b></label>
-        <input type="text" placeholder="Enter first name" name="firstname" required>
+      paypal.Button.render({
 
-        <label for="lastname"><b>Last_Name: </b></label>
-        <input type="text" placeholder="Enter last name" name="lastname" required>
-        
-        <label for="password"><b>Password: </b></label>
-        <input type="password" placeholder="Enter Password" name="password" required>
-        
-        <label for="email"><b>Email: </b></label>
-        <input type="text" placeholder="Enter Email" name="email" required>
+        env: 'sandbox', // Or 'sandbox'
+          
+          style: {
+        color: 'black',
+        size: 'small'
+      },
 
-        <label for="phone"><b>Phone No:</b></label>
-        <input type="text" placeholder="Enter phone number" name="phone" required>
-        <hr>
-        <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+        client: {
+            sandbox:    'AcWveMWEfBMxRYMW4BazgDPzUXEZf9aP0MgY1ek7JTI-l4cC6SiVNYhLsdmXGlCp9_JyWIo2Eafr94EJ',
+            production: 'AcWveMWEfBMxRYMW4BazgDPzUXEZf9aP0MgY1ek7JTI-l4cC6SiVNYhLsdmXGlCp9_JyWIo2Eafr94EJ'
+        },
 
-        <button type="submit" class="registerbtn" name="submit">Register</button>
-      </div>
-      <div class="container signin">
-        <p>Already have an account? <a href="#myModal" class="nav-link trigger-btn" data-toggle="modal">Sign in</a>.</p>
-      </div>
-  </form>
-  
-      <?php
-        if (isset($_POST['submit'])){
+        commit: true, // Show a 'Pay Now' button
 
-            $firstname = $_POST['firstname'];
-            $lastname = $_POST['lastname'];
-            $password = $_POST['password'];
-            $email = $_POST['email'];
-            $phone = $_POST['phone'];
+        payment: function(data, actions) {
+            return actions.payment.create({
+                payment: {
+                    transactions: [
+                        {
+                            amount: { total: '1.00', currency: 'USD' }
+                        }
+                    ]
+                }
+            });
+        },
 
-
-        $conn = mysqli_connect('localhost','root','','outlet','3306') or die("Cannot connect to db");
-        $query = "INSERT into clients (First_Name, Last_Name, Password, Email, Phone_Number)
-                  VALUES ('$firstname','$lastname','$password','$email','$phone')";
-        $result = mysqli_query($conn, $query);
-
-        if($result) { 
-                echo "<script>alert('Registration successful');
-                    window.location.href='index.php';</script>";
+        onAuthorize: function(data, actions) {
+            return actions.payment.execute().then(function(payment) {
+               
+                document.getElementById('paypal-success').innerHTML="Payment Successful";
+                
+                window.location.replace("paypalConfirm.php");
+                
+            });
         }
-        else{
-             echo "<script>alert('Error, try again...');
-               window.location.href='register.php';</script>";
-        }
-     }
 
-    ?>
+    }, '#paypal-button');
+          
+    </script>
+      </div>
   
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

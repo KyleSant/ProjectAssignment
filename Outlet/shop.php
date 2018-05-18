@@ -21,7 +21,21 @@
         <a href="help.php">
         <img src="images/faq.png" class="option1" height="32">
        </a>
-        <img src="images/basket.png" class="option2" height="45">
+       
+        <?php if(isset($_SESSION['username'])): ?>
+           <a href="cart.php">
+            <img src="images/basket.png" class="option2" height="45">
+           </a>
+          <?php else: ?>
+             <img src="images/basket.png" class="option2" onclick="message()" height="45">
+          <?php endif; ?>
+          
+        <script>
+            function message(){
+                swal("Notice", "You need to login to access the shopping-cart!", "error");
+            }
+        </script>
+        
         <a href="gallery.php">
             <img src="images/screenshot.png" class="option3" height="32">
         </a>
@@ -63,7 +77,7 @@
 
                     </div>
                     <div class="modal-footer">
-                        <a href="#">Forgot Password?</a>
+                        <a href="forgetPassword.php">Forgot Password?</a>
                     </div>
                 </div>
             </div>
@@ -75,7 +89,7 @@
    
     <header>
     <div class="navigation">
-      <img src="images/logo.jpg" height="60">
+      <img src="images/logo.png" height="60">
 
       <nav>
         <ul>
@@ -121,32 +135,38 @@
        <h2>Brand: </h2>
         <form method="post" action="filter.php">
             <div class="radio">
-              <label><input type="radio" name="brandRadio">ZOWIE</label>
+              <label><input type="radio" name="brandRadio" value="1" checked>ZOWIE</label>
             </div>
             <div class="radio">
-              <label><input type="radio" name="brandRadio">RAZER</label>
+              <label><input type="radio" name="brandRadio" value="2">RAZER</label>
             </div>
             <div class="radio">
-              <label><input type="radio" name="brandRadio">CORSAIR</label>
+              <label><input type="radio" name="brandRadio" value="3">CORSAIR</label>
             </div>
             <div class="radio">
-              <label><input type="radio" name="brandRadio">LOGITECH</label>
+              <label><input type="radio" name="brandRadio" value="4">LOGITECH</label>
             </div>
             <div class="radio">
-              <label><input type="radio" name="brandRadio">RED</label>
+              <label><input type="radio" name="brandRadio" value="5">RED</label>
             </div>
             <div class="radio">
-              <label><input type="radio" name="brandRadio">ROCCAT</label>
+              <label><input type="radio" name="brandRadio" value="6">ROCCAT</label>
             </div>
           <h2>Price: </h2>
             <div class="radio">
-              <label><input type="radio" name="priceRadio">25</label>
+              <label><input type="radio" name="priceRadio" value="25">Less than 25</label>
             </div>
             <div class="radio">
-              <label><input type="radio" name="priceRadio">100</label>
+              <label><input type="radio" name="priceRadio" value="50">Less than 50</label>
             </div>
             <div class="radio">
-              <label><input type="radio" name="priceRadio">150</label>
+              <label><input type="radio" name="priceRadio" value="100" checked>Less than 100</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="priceRadio" value="300">Less than 300</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="priceRadio" value="500">Less than 500</label>
             </div>
             <input type="submit" name="filterProduct" value="Filter" id="filter">
        </form>
@@ -168,14 +188,16 @@
                     <br><br>
                     <a class='selectStock'>$row[Stock]</a>
                     <br>
-                    <button>Add to Cart</button>
+                    <button type='button' name='addCart'><a href='http://localhost:80/outlet/addcart.php?id=$row[Product_Id]'>Add to Cart</a></button>
                   </div>";
         }
      ?>
+     
   </div>
    
 
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>

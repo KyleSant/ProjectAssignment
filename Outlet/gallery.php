@@ -39,7 +39,20 @@
        <a href="help.php">
         <img src="images/faq.png" class="option1" height="32">
        </a>
-        <img src="images/basket.png" class="option2" height="45">
+        <?php if(isset($_SESSION['username'])): ?>
+           <a href="cart.php">
+            <img src="images/basket.png" class="option2" height="45">
+           </a>
+          <?php else: ?>
+             <img src="images/basket.png" class="option2" onclick="message()" height="45">
+          <?php endif; ?>
+          
+        <script>
+            function message(){
+                swal("Notice", "You need to login to access the shopping-cart!", "error");
+            }
+        </script>
+        
         <img src="images/screenshot.png" class="option3" height="32">
         <a href="#myModal" class="nav-link trigger-btn" data-toggle="modal">
             <?php if(isset($_SESSION['username'])): ?>
@@ -79,7 +92,7 @@
 
                     </div>
                     <div class="modal-footer">
-                        <a href="#">Forgot Password?</a>
+                        <a href="forgetPassword.php">Forgot Password?</a>
                     </div>
                 </div>
             </div>
@@ -94,7 +107,7 @@
    
     <header>
     <div class="navigation">
-      <img src="images/logo.jpg" height="60">
+      <img src="images/logo.png" height="60">
 
       <nav>
         <ul>
@@ -139,6 +152,7 @@
 		</div>
 		
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
        
 </body>

@@ -69,7 +69,7 @@
    
     <header>
     <div class="navigation">
-      <img src="images/logo.jpg" height="60">
+      <img src="images/logo.png" height="60">
 
       <nav>
         <ul>

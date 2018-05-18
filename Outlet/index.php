@@ -16,10 +16,25 @@
    <!-- options -->
    
     <div class="options">
-       <a href="help.php">
-        <img src="images/faq.png" class="option1" height="32">
+        <a href="help.php">
+            <img src="images/faq.png" class="option1" height="32">
         </a>
-        <img src="images/basket.png" class="option2" height="45">
+        
+        
+          <?php if(isset($_SESSION['username'])): ?>
+           <a href="cart.php">
+            <img src="images/basket.png" class="option2" height="45">
+           </a>
+          <?php else: ?>
+             <img src="images/basket.png" class="option2" onclick="message()" height="45">
+          <?php endif; ?>
+          
+        <script>
+            function message(){
+                swal("Notice", "You need to login to access the shopping-cart!", "error");
+            }
+        </script>
+        
         <a href="gallery.php">
             <img src="images/screenshot.png" class="option3" height="32">
         </a>
@@ -61,7 +76,7 @@
 
                     </div>
                     <div class="modal-footer">
-                        <a href="#">Forgot Password?</a>
+                        <a href="forgetPassword.php">Forgot Password?</a>
                     </div>
                 </div>
             </div>
@@ -74,7 +89,7 @@
    
     <header>
     <div class="navigation">
-      <img src="images/logo.jpg" height="60">
+      <img src="images/logo.png" height="60">
 
       <nav>
         <ul>
@@ -206,10 +221,10 @@
                     </ul>
                 </div>
                 <div class="col-sm-3">
-                    <div class="social-networks">
-                        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                        <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+                     <div class="social-networks">
+                        <a href="https://twitter.com/?lang=en" class="twitter"><i class="fa fa-twitter"></i></a>
+                        <a href="https://www.facebook.com/" class="facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="https://plus.google.com/discover" class="google"><i class="fa fa-google-plus"></i></a>
                     </div>
                 </div>
             </div>
@@ -219,6 +234,7 @@
         </div>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
        
 </body>

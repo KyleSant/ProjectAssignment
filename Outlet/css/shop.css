@@ -143,7 +143,7 @@ nav a:hover::before {
     margin-top: 4%;
     margin-left: 0.5%;
     width: 16%;
-    height: 550px;
+    height: 600px;
     background-color: white;
     box-sizing: border-box;   
     border: 1px solid lightgray;
@@ -168,7 +168,7 @@ nav a:hover::before {
 .product p{
     width: 95%;
     margin-left: 2%;
-    height: 100px;
+    height: 200px;
     text-align: center;
 }
 

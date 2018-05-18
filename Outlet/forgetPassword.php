@@ -74,7 +74,7 @@
    
     <header>
     <div class="navigation">
-      <img src="images/logo.jpg" height="60">
+      <img src="images/logo.png" height="60">
 
       <nav>
         <ul>
@@ -90,13 +90,69 @@
   <!-- Forget Password -->
   <div class="container">
       <p><strong>Are you sure you want to proceed with the following? If yes, request password and you will recieve an automated response within 3 hours maximum.</strong></p>
-      <form method="post" action="requestPassword.php">
+      <form method="post" action="forgetPassword.php">
           <label>Email: </label>
           <input type="email" name="email" id="textInput" placeholder="Enter your email">
           <br>
           <label>Password: </label>
           <input type="password" name="password" id="textInputTwo" placeholder="Enter your email password">
           <br>
+          
+          <?php
+            if(isset($_POST['forgotPass'])){
+                require($_SERVER['DOCUMENT_ROOT'].'/phpmailer/PHPMailerAutoload.php');
+                $conn = mysqli_connect("localhost","root","","outlet","3306");
+                $email = $_POST['email'];
+                $password = $_POST['password'];
+                $query = "SELECT Password from clients where Email='$email'";
+                $result = mysqli_query($conn, $query);
+
+                $row = mysqli_fetch_row($result);
+                $myresult = $row[0];
+        
+                if(empty($email) || empty($password)){
+                    echo "<div class='alert alert-danger' role='alert'>Missing some fields, fill them in</div>";
+                }else{
+        
+        
+                $emailTo = $email;
+                $mail = new PHPMailer(); #create a new instance
+                $mail->isSMTP(); #using SMTP
+                $mail->isHtml(true);
+                $mail->Host = 'smtp.office365.com';
+                #$mail->SMTPDebug = 2; #include client and server messges
+                $mail->Port = 587;
+                $mail->SMTPSecure = 'tls';
+                $mail->SMTPAuth = true;
+                $mail->Username = $email;
+                $mail->Password = $password;
+                $mail->Body = "This is an automated message to reset your password, find the credentials below: <br>". "Password: ". $myresult;
+                $mail->Subject = 'Request Password';
+                $mail->From = $email; #sender
+                $mail->AddAddress($email); #recepient
+                $mail->smtpConnect(
+                    array(
+                        "ssl" => array(
+                            "verify_peer" => false,
+                            "verify_peer_name" => false,
+                            "allow_self_signed" => true
+                        )
+                    )
+                );
+
+
+                if(!$mail->Send()){
+                        echo "Message was not sent";
+                        echo "Mailer Error: ". $mail->ErrorInfo;
+                    }
+                    else{
+                        echo  "<script>alert('Password mail confirmation sent');
+                            window.location.href='forgetPassword.php';</script>";
+                    }
+                }
+        } 
+        ?>
+          
           <input type="submit" id="btn" name="forgotPass" value="Request Password">
       </form>
   </div>
@@ -162,9 +218,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
        
-</body>
-</html>
-  
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
        

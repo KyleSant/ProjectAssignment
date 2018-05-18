@@ -286,12 +286,12 @@ public class crudProducts extends javax.swing.JFrame {
                     "jdbc:mysql://localhost/outlet", "root", "");
  
             Statement stmt = con.createStatement();
-            stmt.executeUpdate("update products set Product_Name='" +pName+"', Price='" +price+ "', Stock='" +stock+ "', "
-                    + "Description='" +desc+ "', Image=" +image+ "', Brand='" +brand+ "', Category='" +category+ "'  where Product_Id='" +pId+ "'");
+            stmt.executeUpdate("update products set Product_Name='" +pName+"', Price='" +price+ "', "
+                    + "Stock='" +stock+ "', Description='" +desc+ "', Image='" +image+ "', Brand='" +brand+ "', Category='" +category+ "'  where Product_Id='" +pId+ "'");
             con.close();
             System.out.println("Record successfully updated");
         } catch (Exception e) {
-            System.out.println("Query Failed"); }
+            e.printStackTrace(); }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     /**

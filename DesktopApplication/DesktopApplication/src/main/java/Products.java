@@ -179,7 +179,7 @@ public class Products extends javax.swing.JFrame {
             con.close();            
             
         } catch (Exception e) {
-            System.out.println("Query Failed");
+            e.printStackTrace();
         }
 
     }//GEN-LAST:event_btnSearchActionPerformed
